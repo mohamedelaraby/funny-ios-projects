@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    //Hold the slider current value.
+    var currentValue : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +22,16 @@ class ViewController: UIViewController {
    
     
     
-    @IBAction func showAlert(){
-        
+    @IBAction func showAlert( ){
+   
+        let message = "the slider value now is: \(currentValue)"
+
         //Step 1 --> Create an alert Controller.
-        let alert = UIAlertController(title: "Hello Universe!", message: "this is my first app", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Hello Universe!", message: message, preferredStyle: .alert)
         
         //Step 2 --> Create an alert action to show the button inside the alert.
         let action = UIAlertAction(title: "Awesome!", style: .default, handler: nil)
-        
+//
         //Add the action button to the alert.
         alert.addAction(action)
         
@@ -34,7 +40,10 @@ class ViewController: UIViewController {
         
     }
     
-    
+    //get the slider value
+    @IBAction func ShowSlider (_ slider: UISlider) {
+        currentValue = Int (slider.value)
+    }
         
         
         
