@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+   
+    
+    
     @IBAction func showAlert(){
         
         //Step 1 --> Create an alert Controller.
@@ -30,6 +33,18 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+   
 
 }
 
