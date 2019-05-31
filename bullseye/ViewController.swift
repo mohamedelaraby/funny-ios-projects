@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     
     //Hold the slider current value.
     var currentValue : Int = 0
+    //Hold the random number.
+    var targetValue: Int = 0
+    
 
     //Connect the slider to the code.
     @IBOutlet weak var slider: UISlider!
@@ -22,6 +25,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
+
         
         //Close the value of the slider.
         let roundedValue = slider.value.rounded()
@@ -47,23 +53,28 @@ class ViewController: UIViewController {
         //attached the alert to the the view controller.
         present(alert, animated: true, completion: nil)
         
+        newRound()
+        
     }
     
     //get the slider value
     @IBAction func ShowSlider (_ slider: UISlider) {
-        
-        
     }
         
-        
-        
-        
-        
-        
-        
-        
-        
-   
-
+    
+    //Change the round.
+    func newRound () {
+        targetValue = Int.random(in: 1...100)
+        currentValue = 25
+        slider.value = Float (currentValue)
+        updateLabel()
+    }
+ 
+    func updateLabel() {
+        targetNumber.text = String(targetValue)
+    }
+    
 }
+        
+
 
