@@ -14,9 +14,18 @@ class ViewController: UIViewController {
     //Hold the slider current value.
     var currentValue : Int = 0
 
+    //Connect the slider to the code.
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var targetNumber: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var round: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Close the value of the slider.
+        let roundedValue = slider.value.rounded()
+        currentValue = Int (roundedValue)
     }
 
    
@@ -42,7 +51,8 @@ class ViewController: UIViewController {
     
     //get the slider value
     @IBAction func ShowSlider (_ slider: UISlider) {
-        currentValue = Int (slider.value)
+        
+        
     }
         
         

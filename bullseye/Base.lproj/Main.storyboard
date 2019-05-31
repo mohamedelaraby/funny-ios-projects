@@ -43,7 +43,7 @@
                                 <rect key="frame" x="106" y="99" width="370" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="UPz-W3-mR7">
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="UPz-W3-mR7">
                                         <rect key="frame" x="2" y="3" width="370" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
@@ -163,6 +163,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="round" destination="Y6L-UJ-5uQ" id="EcB-l3-Ik0"/>
+                        <outlet property="score" destination="Os2-eO-Q3D" id="Kup-YJ-hNw"/>
+                        <outlet property="slider" destination="UPz-W3-mR7" id="kuy-8O-tX1"/>
+                        <outlet property="targetNumber" destination="MAH-TU-axs" id="Mlb-zc-WZI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
