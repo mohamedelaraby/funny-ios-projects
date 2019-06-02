@@ -10,50 +10,84 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var currentValue = 0
+    var targetValue = 0
+    var scorevalue = 0
+    var roundNumber = 0
     
-    //Hold the slider current value.
-    var currentValue : Int = 0
 
+    //Connect the slider to the code.
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var targetNumber: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var round: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Close the value of the slider.
+        let roundedValue = slider.value.rounded()
+        currentValue = Int (roundedValue)
     }
 
-   
-    
-    
     @IBAction func showAlert( ){
-   
-        let message = "the slider value now is: \(currentValue)"
-
-        //Step 1 --> Create an alert Controller.
+        
+        //calculate the diffrenece between target vallue and the slider value.
+        let difference = abs(targetValue - currentValue)
+        let points = 100 - difference
+        
+        //assign the points value to the score value.
+        scorevalue += points
+       
+        //alert message.
+        let message = "Your scored \(points) points."
+        
+        //Create an alert Controller.
         let alert = UIAlertController(title: "Hello Universe!", message: message, preferredStyle: .alert)
         
-        //Step 2 --> Create an alert action to show the button inside the alert.
+        //Create an alert action to show the button inside the alert.
         let action = UIAlertAction(title: "Awesome!", style: .default, handler: nil)
-//
+
         //Add the action button to the alert.
         alert.addAction(action)
         
         //attached the alert to the the view controller.
         present(alert, animated: true, completion: nil)
+        //Start a new round.
+        newRound()
         
     }
     
-    //get the slider value
-    @IBAction func ShowSlider (_ slider: UISlider) {
-        currentValue = Int (slider.value)
-    }
-        
-        
-        
-        
-        
-        
-        
-        
-        
    
-
+    
+    //Change the round.
+    func newRound () {
+        targetValue = Int.random(in: 1...100)
+        currentValue = 25
+        slider.value = Float (currentValue)
+        roundNumber += 1
+        updateLabel()
+    }
+ 
+    //MARK: Update labels.
+    func updateLabel() {
+        targetNumber.text = String(targetValue)
+         score.text = String(scorevalue)
+        round.text = String(roundNumber)
+    }
+    
+    // MARK:-- Start over the game again.
+    @IBAction func startOverAgain() {
+        startOver()
+    }
+    
+    func startOver() {
+        scorevalue = 0
+        roundNumber = 0
+        currentValue = 25
+    }
+    
 }
+        
+
 
