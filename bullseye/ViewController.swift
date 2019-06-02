@@ -34,31 +34,51 @@ class ViewController: UIViewController {
         
         //calculate the diffrenece between target vallue and the slider value.
         let difference = abs(targetValue - currentValue)
-        let points = 100 - difference
+        var points = 100 - difference
         
         //assign the points value to the score value.
         scorevalue += points
        
+        let title: String
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+      
+        }else if difference < 5 {
+            title = "You almost had it!"
+            
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference  < 10 {
+            title = "Pretty good"
+        }else {
+            title = "Not even Close..."
+        }
+        
         //alert message.
         let message = "Your scored \(points) points."
         
         //Create an alert Controller.
-        let alert = UIAlertController(title: "Hello Universe!", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         //Create an alert action to show the button inside the alert.
-        let action = UIAlertAction(title: "Awesome!", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: {
+        action in
+            self.newRound()
+        })
 
         //Add the action button to the alert.
         alert.addAction(action)
         
         //attached the alert to the the view controller.
         present(alert, animated: true, completion: nil)
-        //Start a new round.
-        newRound()
+        //Staسrt a new round.
+   
         
     }
     
-   
+
     
     //Change the round.
     func newRound () {
@@ -82,9 +102,8 @@ class ViewController: UIViewController {
     }
     
     func startOver() {
-        scorevalue = 0
-        roundNumber = 0
-        currentValue = 25
+       
+    
     }
     
 }
