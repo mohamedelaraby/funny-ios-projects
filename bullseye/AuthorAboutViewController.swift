@@ -7,14 +7,25 @@
 //
 
 import UIKit
+import WebKit
 
 class AuthorAboutViewController: UIViewController {
 
-    @IBOutlet weak var image: UIImage!
+    @IBOutlet weak var webView: WKWebView!
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let htmlPath = Bundle.main.path(forResource: "index", ofType: "html") {
+            let url = URL(fileURLWithPath: htmlPath)
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
 
     }
+    
+    
     
     @IBAction func close () {
         dismiss(animated: true, completion: nil)
