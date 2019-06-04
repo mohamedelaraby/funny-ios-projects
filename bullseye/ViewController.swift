@@ -31,6 +31,21 @@ class ViewController: UIViewController {
         startOver()
     }
 
+    
+    
+    //Style the slider.
+    func sliderStyle(){
+        let thumbNail = #imageLiteral(resourceName: "SliderThumb-Normal")
+        slider.setThumbImage(thumbNail, for: .normal)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func showAlert( ){
         
         //calculate the diffrenece between target vallue and the slider value.

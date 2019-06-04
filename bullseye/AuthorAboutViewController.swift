@@ -10,8 +10,10 @@ import UIKit
 
 class AuthorAboutViewController: UIViewController {
 
+    @IBOutlet weak var image: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     @IBAction func close () {
