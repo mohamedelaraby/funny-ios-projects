@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sliderStyle()
+        
         //Close the value of the slider.
         let roundedValue = slider.value.rounded()
         currentValue = Int (roundedValue)
@@ -35,8 +37,25 @@ class ViewController: UIViewController {
     
     //Style the slider.
     func sliderStyle(){
-        let thumbNail = #imageLiteral(resourceName: "SliderThumb-Normal")
-        slider.setThumbImage(thumbNail, for: .normal)
+        
+        //for normal state
+        let thumbNailNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
+        slider.setThumbImage(thumbNailNormal, for: .normal)
+        
+        //For highlghted state.
+        let thumbNailHighlight = #imageLiteral(resourceName: "SliderThumb-Highlighted")
+        slider.setThumbImage(thumbNailHighlight, for: .highlighted)
+        
+        //left image
+        let inset = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        let trackLeftImage = #imageLiteral(resourceName: "SliderTrackLeft")
+        let trackLeftImageResizable = trackLeftImage.resizableImage(withCapInsets: inset)
+        slider.setMinimumTrackImage(trackLeftImageResizable, for: .normal)
+        
+        //Right image.
+        let trackrightImage = #imageLiteral(resourceName: "SliderTrackRight")
+        let trackRightImageResizable = trackrightImage.resizableImage(withCapInsets: inset)
+        slider.setMaximumTrackImage(trackRightImageResizable, for: .normal)
     }
     
     
