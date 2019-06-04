@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         //Close the value of the slider.
         let roundedValue = slider.value.rounded()
         currentValue = Int (roundedValue)
+        startOver()
     }
 
     @IBAction func showAlert( ){
@@ -102,8 +103,9 @@ class ViewController: UIViewController {
     }
     
     func startOver() {
-       
-    
+    scorevalue = 0
+    roundNumber = 0
+ newRound()
     }
     
 }
